@@ -35,7 +35,7 @@ Depuis 2015, les gestionnaires de réseaux publient la consommation d'électrici
 ```bash
 git clone https://github.com/alvarez237/Projet-Big-Data-.git && cd Projet-Big-Data-
 pip install -r src/requirements.txt
-export S3_BUCKET=user-f-nonotalla-ece                     # bucket S3 personnel Onyxia
+# bucket S3 : détecté automatiquement (namespace Onyxia) ; sinon export S3_BUCKET=<bucket>
 python src/download_data.py --out data/raw                # 1. téléchargement Agence ORE + INSEE (4,01 Mo)
 python src/s3_tool.py upload data/raw raw                 # 2. dépôt du brut sur S3
 python src/s3_tool.py ls raw                              #    contrôle du contenu S3
@@ -49,5 +49,5 @@ python src/iceberg_gold.py                                # 6. couche gold au fo
 python src/benchmark.py --raw data/raw/conso_elec_gaz_communes.csv --factors 1,10   # 7. mesures pandas/DuckDB/Spark
 python src/bench_x100_duckdb.py                           #    mesure x100 (DuckDB en flux)
 ```
-**Relance :** chaque étape Spark relit la couche précédente sur S3 et l'écrase ; en cas d'échec, relancer seulement l'étape concernée (`--stage bronze`, `silver` ou `gold`). Si le service redémarre (mémoire), refaire `pip install` et `export S3_BUCKET`, puis relancer l'étape en arrière-plan : `nohup spark-submit ... > logs/x.log 2>&1 &`.
+**Relance :** chaque étape Spark relit la couche précédente sur S3 et l'écrase ; en cas d'échec, relancer seulement l'étape concernée (`--stage bronze`, `silver` ou `gold`). Si le service redémarre (mémoire), refaire `pip install`, puis relancer l'étape en arrière-plan : `nohup spark-submit ... > logs/x.log 2>&1 &`.
 **Kubernetes :** `bash src/run_k8s.sh all` crée la ConfigMap du code, le Secret S3 et lance les Jobs `conso-pipeline` (Spark, environ 7 min) puis `conso-verify` (DuckDB) ; suivi : `kubectl get jobs,pods -l app=conso-communes`. Prérequis : quota disponible (`kubectl describe resourcequota`) ; supprimer au besoin un ancien service en échec (`helm list`, `helm uninstall <nom>`). Traces d'exécution : `logs/` ; captures : `evidence/`.

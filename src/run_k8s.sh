@@ -12,7 +12,7 @@ echo "Namespace : $NS - $(date '+%Y-%m-%d %H:%M:%S')"
 # Code et paramètres
 kubectl create configmap conso-code --from-file=src/ --dry-run=client -o yaml | kubectl apply -f -
 kubectl create configmap conso-params \
-  --from-literal=S3_BUCKET="${S3_BUCKET:-$USER}" \
+  --from-literal=S3_BUCKET="${S3_BUCKET:-$NS}" \
   --from-literal=S3_PREFIX="${S3_PREFIX:-bigdata_project}" \
   --from-literal=DEPARTEMENTS="${DEPARTEMENTS:-71,21,58,89}" \
   --from-literal=ANNEES="${ANNEES:-2022,2023,2024}" \

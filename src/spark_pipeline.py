@@ -52,6 +52,12 @@ def bronze(spark):
               .withColumn("_ingest_ts", F.current_timestamp()))
         df.write.mode("overwrite").parquet(f"{C.BRONZE_DIR}/{table}")
         log(f"bronze/{table} : {df.count()} lignes")
+        if table == "conso":
+            # Périmètre réellement présent dans les données (et non la configuration,
+            # qui ne sert qu'au téléchargement et peut différer dans le terminal).
+            deps = sorted(r[0] for r in df.select("code_departement").distinct().collect())
+            annees = sorted(r[0] for r in df.select("annee").distinct().collect())
+            log(f"périmètre des données brutes : départements {deps}, années {annees}")
 
 
 # ---------------------------------------------------------------- silver
@@ -157,8 +163,7 @@ def main():
     a = p.parse_args()
     spark = get_spark()
     spark.sparkContext.setLogLevel("WARN")
-    log(f"DATA_ROOT={C.DATA_ROOT} départements={C.DEPARTEMENTS} années={C.ANNEES} "
-        f"Spark {spark.version} master={spark.sparkContext.master}")
+    log(f"DATA_ROOT={C.DATA_ROOT} Spark {spark.version} master={spark.sparkContext.master}")
     for name in (STAGES if a.stage == "all" else [a.stage]):
         t = time.time()
         log(f"début étape {name}")

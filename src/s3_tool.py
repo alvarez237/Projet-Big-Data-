@@ -11,8 +11,7 @@ from datetime import datetime
 
 import boto3
 
-BUCKET = os.environ.get("S3_BUCKET")
-PREFIX = os.environ.get("S3_PREFIX", "bigdata_project")
+from config import S3_BUCKET as BUCKET, S3_PREFIX as PREFIX  # même bucket que le pipeline
 s3 = boto3.client("s3")  # endpoint et clés lus dans les variables AWS_* d'Onyxia
 
 
@@ -36,8 +35,8 @@ def ls(sub=""):
 
 
 if __name__ == "__main__":
-    if not BUCKET:
-        sys.exit("Définir d'abord : export S3_BUCKET=<nom du bucket>")
+    if BUCKET == "mon-id-onyxia":
+        sys.exit("Bucket introuvable hors Onyxia : export S3_BUCKET=<nom du bucket>")
     if sys.argv[1] == "upload":
         upload(sys.argv[2], sys.argv[3])
     else:
