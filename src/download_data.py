@@ -16,10 +16,10 @@ from config import ANNEES, CONSO_FILE, DEPARTEMENTS, POP_FILE
 
 ORE_API = ("https://opendata.agenceore.fr/data-fair/api/v1/datasets/"
            "noxwlxv702-ohfyt76f-a3y9/lines")
-FIELDS = ["operateur", "filiere", "annee", "code_commune", "nom_commune", "code_epci",
-          "nom_epci", "code_departement", "nom_departement", "code_region",
+FIELDS = ["operateur", "filiere", "annee", "code_commune", "nom_commune",
+          "code_departement",
           "code_categorie_consommation", "code_grand_secteur", "code_secteur_naf2",
-          "nb_sites", "conso_totale_mwh", "conso_moyenne_mwh", "nombre_d_habitants"]
+          "nb_sites", "conso_totale_mwh", "conso_moyenne_mwh"]
 
 
 def download_conso(path):
@@ -37,7 +37,7 @@ def download_conso(path):
             page = r.json()
             w.writerows(page["results"])
             n += len(page["results"])
-            print(f"  {n} / {page['total']} lignes")
+            print(f"  {n} / {page.get('total', n)} lignes")
             url, params = page.get("next"), None   # le lien "next" contient déjà les filtres
     return n
 

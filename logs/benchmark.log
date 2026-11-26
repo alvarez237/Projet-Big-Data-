@@ -1,0 +1,16 @@
+nohup: ignoring input
+Thu Nov 26 10:59:58 AM UTC 2026
+user-f-nonotalla-ece
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+/opt/spark/python/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+  require_minimum_pandas_version()
+26/11/26 11:00:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+(1, 51351, 0.38, 'pandas', 0.058, 0.068)
+(1, 51351, 0.38, 'duckdb', 0.093, 0.117)
+(1, 51351, 0.38, 'spark', 1.139, 1.498)
+(10, 513510, 1.64, 'pandas', 0.239, 0.265)
+(10, 513510, 1.64, 'duckdb', 0.29, 0.302)
+(10, 513510, 1.64, 'spark', 1.945, 2.146)

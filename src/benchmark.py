@@ -55,6 +55,7 @@ def main():
     ap.add_argument("--out", default="data/bench")
     ap.add_argument("--factors", default="1,10,100")
     ap.add_argument("--repeat", type=int, default=3)
+    ap.add_argument("--engines", default="pandas,duckdb,spark")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
 
@@ -71,6 +72,8 @@ def main():
         t_spark(spark, path)  # préchauffage de la JVM
         for name, fn in [("pandas", t_pandas), ("duckdb", t_duckdb),
                          ("spark", lambda q: t_spark(spark, q))]:
+            if name not in a.engines.split(","):
+                continue
             ts = [fn(path) for _ in range(a.repeat)]
             rows.append((f, n, round(os.path.getsize(path) / 1e6, 2), name,
                          round(min(ts), 3), round(sum(ts) / len(ts), 3)))

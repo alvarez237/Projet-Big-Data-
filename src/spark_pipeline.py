@@ -65,7 +65,7 @@ def silver(spark):
             .withColumn("nb_sites", F.col("nb_sites").cast("int"))
             .withColumn("conso_totale_mwh", F.col("conso_totale_mwh").cast("double"))
             .withColumn("conso_moyenne_mwh", F.col("conso_moyenne_mwh").cast("double"))
-            .withColumn("nombre_d_habitants", F.col("nombre_d_habitants").cast("double")))
+            )
 
     n0 = df.count()
     df = df.dropDuplicates()

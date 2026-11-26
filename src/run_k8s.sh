@@ -5,7 +5,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 STAGE=${1:-all}
-NS=$(kubectl config view --minify -o jsonpath='{..namespace}')
+NS=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 LOGS=logs; mkdir -p "$LOGS"
 echo "Namespace : $NS - $(date '+%Y-%m-%d %H:%M:%S')"
 

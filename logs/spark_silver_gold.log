@@ -1,0 +1,189 @@
+nohup: ignoring input
+Thu Nov 26 10:43:43 AM UTC 2026
+user-f-nonotalla-ece
+user-f-nonotalla-ece
+WARNING: Using incubator modules: jdk.incubator.vector
+/opt/spark/python/lib/pyspark.zip/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/11/26 10:43:52 INFO SparkContext: Running Spark version 4.3.0
+26/11/26 10:43:52 INFO SparkContext: OS info Linux, 7.0.0-29-generic, amd64
+26/11/26 10:43:52 INFO SparkContext: Java version 21.0.13.1+2-1-24.04.1-Ubuntu
+26/11/26 10:43:52 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/26 10:43:52 INFO ResourceUtils: ==============================================================
+26/11/26 10:43:52 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/26 10:43:52 INFO ResourceUtils: ==============================================================
+26/11/26 10:43:52 INFO SparkContext: Submitted application: conso-communes-pipeline
+26/11/26 10:43:52 INFO SecurityManager: Changing view acls to: onyxia
+26/11/26 10:43:52 INFO SecurityManager: Changing modify acls to: onyxia
+26/11/26 10:43:52 INFO SecurityManager: Changing view acls groups to: onyxia
+26/11/26 10:43:52 INFO SecurityManager: Changing modify acls groups to: onyxia
+26/11/26 10:43:52 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: onyxia groups with view permissions: EMPTY; users with modify permissions: onyxia; groups with modify permissions: EMPTY; RPC SSL disabled
+26/11/26 10:43:53 INFO Utils: Successfully started service 'sparkDriver' on port 42209.
+26/11/26 10:43:53 INFO SparkEnv: Registering MapOutputTracker
+26/11/26 10:43:53 INFO SparkEnv: Registering BlockManagerMaster
+26/11/26 10:43:53 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/26 10:43:53 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/26 10:43:53 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/26 10:43:53 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-cefbcfea-c9ce-4e94-861b-57b7f989b68b
+26/11/26 10:43:53 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/26 10:43:54 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/11/26 10:43:54 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/11/26 10:43:54 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/26 10:43:54 INFO ResourceProfile: Limiting resource is cpu
+26/11/26 10:43:54 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/26 10:43:54 INFO SecurityManager: Changing view acls to: onyxia
+26/11/26 10:43:54 INFO SecurityManager: Changing modify acls to: onyxia
+26/11/26 10:43:54 INFO SecurityManager: Changing view acls groups to: onyxia
+26/11/26 10:43:54 INFO SecurityManager: Changing modify acls groups to: onyxia
+26/11/26 10:43:54 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: onyxia groups with view permissions: EMPTY; users with modify permissions: onyxia; groups with modify permissions: EMPTY; RPC SSL disabled
+26/11/26 10:43:54 INFO StreamingShuffleManager: Using StreamingShuffleManager
+26/11/26 10:43:54 INFO Executor: Starting executor ID driver on host vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local
+26/11/26 10:43:54 INFO Executor: Running Spark version 4.3.0
+26/11/26 10:43:54 INFO Executor: OS info Linux, 7.0.0-29-generic, amd64
+26/11/26 10:43:54 INFO Executor: Java version 21.0.13.1+2-1-24.04.1-Ubuntu
+26/11/26 10:43:54 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/11/26 10:43:54 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@cdeddc5 for default.
+26/11/26 10:43:54 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38119.
+26/11/26 10:43:54 INFO NettyBlockTransferService: Server created on vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local:38119
+26/11/26 10:43:54 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/26 10:43:54 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 38119, None)
+26/11/26 10:43:54 INFO BlockManagerMasterEndpoint: Registering block manager vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local:38119 with 434.4 MiB RAM, BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 38119, None)
+26/11/26 10:43:54 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 38119, None)
+26/11/26 10:43:54 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 38119, None)
+[2026-11-26 10:44:00] DATA_ROOT=s3a://user-f-nonotalla-ece/bigdata_project départements=['71', '21', '58', '89'] années=['2022', '2023', '2024'] Spark 4.3.0 master=local[*]
+[2026-11-26 10:44:00] début étape silver
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+26/11/26 10:44:42 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 10:44:42 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
++----------+-----------------------------------------+---------+------------------------------+
+|table     |controle                                 |nb_lignes|traitement                    |
++----------+-----------------------------------------+---------+------------------------------+
+|conso     |lignes_brutes                            |51351    |-                             |
+|conso     |doublons_exacts                          |0        |supprimées                    |
+|conso     |consommation_absente (secret statistique)|10406    |supprimées                    |
+|conso     |consommation_negative                    |0        |supprimées                    |
+|conso     |code_commune_invalide                    |0        |supprimées                    |
+|conso     |secteur_ou_categorie_inconnu             |234      |gardées, secteur = INCONNU    |
+|conso     |conso_sans_point_de_livraison            |0        |signalées                     |
+|conso     |moyenne_incoherente (totale/nb_sites)    |0        |signalées                     |
+|conso     |lignes_silver                            |40945    |-                             |
+|population|lignes_brutes                            |1993     |-                             |
+|population|population_absente_ou_nulle              |0        |supprimées                    |
+|jointure  |communes_conso_sans_population           |0        |exclues du calcul par habitant|
+|jointure  |communes_population_sans_conso           |1        |signalées                     |
++----------+-----------------------------------------+---------+------------------------------+
+
+[2026-11-26 10:44:46] fin étape silver en 46.4 s
+WARNING: Using incubator modules: jdk.incubator.vector
+/opt/spark/python/lib/pyspark.zip/pyspark/testing/utils.py:127: FutureWarning: PySpark does not yet fully support pandas >= 3.0.0. Some features may not work correctly. It is recommended to use pandas < 3.0.0 for now.
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/11/26 10:44:54 INFO SparkContext: Running Spark version 4.3.0
+26/11/26 10:44:54 INFO SparkContext: OS info Linux, 7.0.0-29-generic, amd64
+26/11/26 10:44:54 INFO SparkContext: Java version 21.0.13.1+2-1-24.04.1-Ubuntu
+26/11/26 10:44:55 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/26 10:44:55 INFO ResourceUtils: ==============================================================
+26/11/26 10:44:55 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/26 10:44:55 INFO ResourceUtils: ==============================================================
+26/11/26 10:44:55 INFO SparkContext: Submitted application: conso-communes-pipeline
+26/11/26 10:44:55 INFO SecurityManager: Changing view acls to: onyxia
+26/11/26 10:44:55 INFO SecurityManager: Changing modify acls to: onyxia
+26/11/26 10:44:55 INFO SecurityManager: Changing view acls groups to: onyxia
+26/11/26 10:44:55 INFO SecurityManager: Changing modify acls groups to: onyxia
+26/11/26 10:44:55 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: onyxia groups with view permissions: EMPTY; users with modify permissions: onyxia; groups with modify permissions: EMPTY; RPC SSL disabled
+26/11/26 10:44:55 INFO Utils: Successfully started service 'sparkDriver' on port 45797.
+26/11/26 10:44:55 INFO SparkEnv: Registering MapOutputTracker
+26/11/26 10:44:55 INFO SparkEnv: Registering BlockManagerMaster
+26/11/26 10:44:55 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/26 10:44:55 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/26 10:44:55 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/26 10:44:56 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f6ed5c0c-ef6c-4332-b685-0890d50364c8
+26/11/26 10:44:56 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/26 10:44:56 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/11/26 10:44:56 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/11/26 10:44:56 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/26 10:44:57 INFO ResourceProfile: Limiting resource is cpu
+26/11/26 10:44:57 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/26 10:44:57 INFO SecurityManager: Changing view acls to: onyxia
+26/11/26 10:44:57 INFO SecurityManager: Changing modify acls to: onyxia
+26/11/26 10:44:57 INFO SecurityManager: Changing view acls groups to: onyxia
+26/11/26 10:44:57 INFO SecurityManager: Changing modify acls groups to: onyxia
+26/11/26 10:44:57 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: onyxia groups with view permissions: EMPTY; users with modify permissions: onyxia; groups with modify permissions: EMPTY; RPC SSL disabled
+26/11/26 10:44:57 INFO StreamingShuffleManager: Using StreamingShuffleManager
+26/11/26 10:44:57 INFO Executor: Starting executor ID driver on host vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local
+26/11/26 10:44:57 INFO Executor: Running Spark version 4.3.0
+26/11/26 10:44:57 INFO Executor: OS info Linux, 7.0.0-29-generic, amd64
+26/11/26 10:44:57 INFO Executor: Java version 21.0.13.1+2-1-24.04.1-Ubuntu
+26/11/26 10:44:57 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/11/26 10:44:57 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@322e3d60 for default.
+26/11/26 10:44:57 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41055.
+26/11/26 10:44:57 INFO NettyBlockTransferService: Server created on vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local:41055
+26/11/26 10:44:57 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/26 10:44:57 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 41055, None)
+26/11/26 10:44:57 INFO BlockManagerMasterEndpoint: Registering block manager vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local:41055 with 434.4 MiB RAM, BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 41055, None)
+26/11/26 10:44:57 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 41055, None)
+26/11/26 10:44:57 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, vscode-pyspark-615382-0.vscode-pyspark-615382.user-f-nonotalla-ece.svc.cluster.local, 41055, None)
+[2026-11-26 10:45:02] DATA_ROOT=s3a://user-f-nonotalla-ece/bigdata_project départements=['71', '21', '58', '89'] années=['2022', '2023', '2024'] Spark 4.3.0 master=local[*]
+[2026-11-26 10:45:02] début étape gold
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+26/11/26 10:45:30 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 10:45:30 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+[2026-11-26 10:45:33] gold/conso_par_habitant : 5975 lignes
+[2026-11-26 10:45:33] Top 10 des communes (énergie résidentielle par habitant, dernière année) :
++-----+----------------+------------+--------------------+----------+------------+-----------+---------------+--------------+----------------+---------------+-------------------+----------------------+-----------------+----+
+|annee|code_departement|code_commune|nom_commune         |population|elec_res_mwh|gaz_res_mwh|elec_totale_mwh|gaz_totale_mwh|elec_res_kwh_hab|gaz_res_kwh_hab|energie_res_kwh_hab|energie_totale_kwh_hab|evolution_res_pct|rang|
++-----+----------------+------------+--------------------+----------+------------+-----------+---------------+--------------+----------------+---------------+-------------------+----------------------+-----------------+----+
+|2024 |89              |89380       |Savigny-sur-Clairis |450       |2346.7      |7280.7     |12105.7        |9246.8        |5215.0          |16179.0        |21394.0            |47450.0               |0.4              |1   |
+|2024 |21              |21150       |Chassagne-Montrachet|261       |841.6       |2532.0     |3217.4         |4780.6        |3224.0          |9701.0         |12925.0            |30644.0               |5.8              |2   |
+|2024 |21              |21512       |Puligny-Montrachet  |340       |1428.1      |2503.5     |4482.4         |3815.6        |4200.0          |7363.0         |11564.0            |24406.0               |-0.5             |3   |
+|2024 |21              |21428       |Monthelie           |144       |396.9       |1202.3     |715.5          |1691.9        |2756.0          |8349.0         |11105.0            |16718.0               |6.0              |4   |
+|2024 |89              |89162       |Évry                |402       |1343.9      |2673.5     |1479.8         |3957.0        |3343.0          |6650.0         |9993.0             |13524.0               |105.3            |5   |
+|2024 |21              |21716       |Vougeot             |150       |486.9       |925.7      |1589.4         |2365.6        |3246.0          |6171.0         |9417.0             |26367.0               |1.0              |6   |
+|2024 |21              |21492       |Pommard             |430       |1377.9      |2485.8     |2895.2         |4170.1        |3204.0          |5781.0         |8985.0             |16431.0               |4.2              |7   |
+|2024 |21              |21712       |Volnay              |224       |516.7       |1428.2     |1419.9         |2875.5        |2307.0          |6376.0         |8683.0             |19176.0               |-3.1             |8   |
+|2024 |71              |71174       |Dezize-lès-Maranges |162       |510.8       |892.1      |759.7          |1041.4        |3153.0          |5507.0         |8659.0             |11118.0               |3.5              |9   |
+|2024 |21              |21412       |Meursault           |1363      |4250.6      |7146.5     |19363.8        |14594.6       |3119.0          |5243.0         |8362.0             |24914.0               |0.7              |10  |
++-----+----------------+------------+--------------------+----------+------------+-----------+---------------+--------------+----------------+---------------+-------------------+----------------------+-----------------+----+
+only showing top 10 rows
+26/11/26 10:45:41 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 10:45:41 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+[2026-11-26 10:45:43] gold/conso_par_secteur : 30 lignes
++-----+-----------+------------------+---------+-------------------+--------+
+|annee|filiere    |code_grand_secteur|conso_gwh|nb_points_livraison|part_pct|
++-----+-----------+------------------+---------+-------------------+--------+
+|2022 |Electricité|RESIDENTIEL       |4000.72  |911835             |37.3    |
+|2022 |Electricité|TERTIAIRE         |3730.21  |118856             |34.8    |
+|2022 |Electricité|INDUSTRIE         |2777.93  |9137               |25.9    |
+|2022 |Electricité|AGRICULTURE       |167.74   |10653              |1.6     |
+|2022 |Electricité|INCONNU           |44.84    |1119               |0.4     |
+|2022 |Gaz        |INDUSTRIE         |3886.14  |2962               |41.7    |
+|2022 |Gaz        |RESIDENTIEL       |3475.4   |306467             |37.3    |
+|2022 |Gaz        |TERTIAIRE         |1918.22  |19965              |20.6    |
+|2022 |Gaz        |AGRICULTURE       |43.89    |725                |0.5     |
+|2022 |Gaz        |INCONNU           |2.14     |3                  |0.0     |
+|2023 |Electricité|RESIDENTIEL       |3888.75  |916956             |37.9    |
+|2023 |Electricité|TERTIAIRE         |3503.67  |119734             |34.2    |
+|2023 |Electricité|INDUSTRIE         |2696.48  |9009               |26.3    |
+|2023 |Electricité|AGRICULTURE       |157.35   |10327              |1.5     |
+|2023 |Electricité|INCONNU           |4.94     |1289               |0.0     |
+|2023 |Gaz        |INDUSTRIE         |3501.87  |2851               |41.0    |
+|2023 |Gaz        |RESIDENTIEL       |3205.36  |301131             |37.5    |
+|2023 |Gaz        |TERTIAIRE         |1803.15  |19896              |21.1    |
+|2023 |Gaz        |AGRICULTURE       |37.73    |720                |0.4     |
+|2023 |Gaz        |INCONNU           |0.26     |2                  |0.0     |
+|2024 |Electricité|RESIDENTIEL       |3923.11  |920224             |38.1    |
+|2024 |Electricité|TERTIAIRE         |3498.12  |120233             |33.9    |
+|2024 |Electricité|INDUSTRIE         |2349.98  |9256               |22.8    |
+|2024 |Electricité|INCONNU           |382.12   |1242               |3.7     |
+|2024 |Electricité|AGRICULTURE       |153.71   |10234              |1.5     |
+|2024 |Gaz        |INDUSTRIE         |3362.28  |2865               |39.8    |
+|2024 |Gaz        |RESIDENTIEL       |3159.04  |295989             |37.4    |
+|2024 |Gaz        |TERTIAIRE         |1877.41  |19971              |22.2    |
+|2024 |Gaz        |AGRICULTURE       |40.57    |717                |0.5     |
+|2024 |Gaz        |INCONNU           |2.73     |2                  |0.0     |
++-----+-----------+------------------+---------+-------------------+--------+
+
+[2026-11-26 10:45:44] fin étape gold en 41.7 s

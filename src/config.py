@@ -6,8 +6,8 @@ AWS_S3_ENDPOINT sont injectées automatiquement dans les services.
 import os
 
 # Périmètre étudié : départements (codes INSEE) et années
-DEPARTEMENTS = os.environ.get("DEPARTEMENTS", "71").split(",")
-ANNEES = os.environ.get("ANNEES", "2022,2023").split(",")
+DEPARTEMENTS = os.environ.get("DEPARTEMENTS", "71,21,58,89").split(",")
+ANNEES = os.environ.get("ANNEES", "2022,2023,2024").split(",")
 
 # Bucket personnel Onyxia = identifiant utilisateur
 S3_BUCKET = os.environ.get("S3_BUCKET", os.environ.get("USER", "mon-id-onyxia"))
