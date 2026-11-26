@@ -3,6 +3,7 @@
 Usage :
     spark-submit src/spark_pipeline.py --stage all       # tout le pipeline
     spark-submit src/spark_pipeline.py --stage gold      # une seule étape
+    spark-submit src/spark_pipeline.py --stage gold --table top_communes_2000hab   # une seule table gold
 
 Chaque étape relit la couche précédente sur S3 et l'écrase (mode overwrite).
 """
@@ -132,11 +133,21 @@ def silver(spark):
 
 
 # ---------------------------------------------------------------- gold
-def gold(spark):
+GOLD_TABLES = ["conso_par_habitant", "conso_par_secteur",
+               "synthese_departement", "top_communes_2000hab"]
+
+
+def gold(spark, tables=None):
+    """Calcule les tables gold. `tables` permet de n'en relancer qu'une partie
+    (option --table) : utile si le service s'arrête en cours d'étape."""
+    tables = tables or GOLD_TABLES
     spark.read.parquet(f"{C.SILVER_DIR}/conso").createOrReplaceTempView("conso")
     spark.read.parquet(f"{C.SILVER_DIR}/population").createOrReplaceTempView("population")
-    for name in ["conso_par_habitant", "conso_par_secteur",
-                 "synthese_departement", "top_communes_2000hab"]:
+    if "conso_par_habitant" not in tables:
+        # synthese_departement et top_communes_2000hab lisent la vue gold_hab :
+        # on la reprend depuis la table déjà écrite au lieu de la recalculer.
+        spark.read.parquet(f"{C.GOLD_DIR}/conso_par_habitant").createOrReplaceTempView("gold_hab")
+    for name in tables:
         with open(os.path.join(HERE, f"gold_{name}.sql"), encoding="utf-8") as f:
             df = spark.sql(f.read())
         df.write.mode("overwrite").parquet(f"{C.GOLD_DIR}/{name}")
@@ -160,14 +171,21 @@ STAGES = {"bronze": bronze, "silver": silver, "gold": gold}
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--stage", default="all", choices=["all", *STAGES])
+    p.add_argument("--table", action="append", choices=GOLD_TABLES,
+                   help="avec --stage gold : ne relancer que cette table (option répétable)")
     a = p.parse_args()
+    if a.table and a.stage != "gold":
+        p.error("--table ne s'utilise qu'avec --stage gold")
     spark = get_spark()
     spark.sparkContext.setLogLevel("WARN")
     log(f"DATA_ROOT={C.DATA_ROOT} Spark {spark.version} master={spark.sparkContext.master}")
     for name in (STAGES if a.stage == "all" else [a.stage]):
         t = time.time()
         log(f"début étape {name}")
-        STAGES[name](spark)
+        if name == "gold":
+            gold(spark, a.table)
+        else:
+            STAGES[name](spark)
         log(f"fin étape {name} en {time.time() - t:.1f} s")
     spark.stop()
 

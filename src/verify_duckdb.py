@@ -10,6 +10,7 @@ Contrôle 3 (manuel) : comparer 2 ou 3 communes du top 10 avec la datavisualisat
 Usage : python src/verify_duckdb.py
 """
 import os
+import sys
 from datetime import datetime
 
 import duckdb
@@ -102,6 +103,11 @@ def main():
     con.execute(f"COPY cmp_df TO '{out}/controle1_spark_vs_duckdb.csv' (HEADER, DELIMITER ';')")
     con.execute(f"COPY tot_df TO '{out}/controle2_totaux.csv' (HEADER, DELIMITER ';')")
     log(f"rapports écrits dans {out}")
+    # Code retour non nul si un contrôle échoue : la vérification peut ainsi
+    # bloquer une chaîne automatisée (Makefile, GitHub Actions, Job Kubernetes).
+    if len(cmp) == 0 or ok < len(cmp):
+        log("ÉCHEC du contrôle 1")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
