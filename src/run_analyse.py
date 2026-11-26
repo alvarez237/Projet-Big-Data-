@@ -16,6 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 def main():
     con = connect()
     con.execute(f"CREATE VIEW hab AS SELECT * FROM read_parquet('{p(C.GOLD_DIR)}/conso_par_habitant/*.parquet')")
+    con.execute(f"CREATE VIEW synthese AS SELECT * FROM read_parquet('{p(C.GOLD_DIR)}/synthese_departement/*.parquet')")
     con.execute(f"CREATE VIEW secteur AS SELECT * FROM read_parquet('{p(C.GOLD_DIR)}/conso_par_secteur/*.parquet')")
     sql = open(os.path.join(HERE, "analyse_problematique.sql"), encoding="utf-8").read()
     blocs = [b.strip() for b in re.split(r"\n(?=-- Q\d)", sql) if b.strip().startswith("-- Q")]
