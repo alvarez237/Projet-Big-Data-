@@ -9,8 +9,21 @@ import os
 DEPARTEMENTS = os.environ.get("DEPARTEMENTS", "71,21,58,89").split(",")
 ANNEES = os.environ.get("ANNEES", "2022,2023,2024").split(",")
 
-# Bucket personnel Onyxia = identifiant utilisateur
-S3_BUCKET = os.environ.get("S3_BUCKET", os.environ.get("USER", "mon-id-onyxia"))
+# Bucket personnel Onyxia : il porte le nom du namespace Kubernetes du service.
+# On le lit automatiquement, ce qui évite un "export S3_BUCKET" manuel
+# (l'ancienne valeur par défaut, $USER, est vide sur Onyxia et ne correspond à aucun bucket).
+NAMESPACE_FILE = "/var/run/secrets/kubernetes.io/serviceaccount/namespace"
+
+
+def _bucket_par_defaut():
+    try:
+        with open(NAMESPACE_FILE) as f:
+            return f.read().strip()
+    except OSError:  # hors Onyxia : pas de namespace, il faut définir S3_BUCKET
+        return "mon-id-onyxia"
+
+
+S3_BUCKET = os.environ.get("S3_BUCKET") or _bucket_par_defaut()
 S3_PREFIX = os.environ.get("S3_PREFIX", "bigdata_project")
 
 # DATA_ROOT permet aussi d'exécuter le pipeline sur un dossier local
