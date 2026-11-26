@@ -3,3 +3,4 @@ pandas>=2.0
 pyarrow>=14
 requests>=2.31
 boto3
+pyiceberg[sql-sqlite,pyarrow]
