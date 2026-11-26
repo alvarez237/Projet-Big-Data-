@@ -2,7 +2,7 @@
 
 ## Auteurs
 - NONO TALLA Fortune Alvarez
-- SAMSON ELIE
+- kOMBIWO SAMSON ELIE
 
 ## Prérequis
 - Compte Onyxia, service **VSCode-pyspark** lancé avec le rôle Kubernetes `admin`.
