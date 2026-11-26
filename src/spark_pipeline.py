@@ -129,14 +129,19 @@ def silver(spark):
 def gold(spark):
     spark.read.parquet(f"{C.SILVER_DIR}/conso").createOrReplaceTempView("conso")
     spark.read.parquet(f"{C.SILVER_DIR}/population").createOrReplaceTempView("population")
-    for name in ["conso_par_habitant", "conso_par_secteur"]:
+    for name in ["conso_par_habitant", "conso_par_secteur",
+                 "synthese_departement", "top_communes_2000hab"]:
         with open(os.path.join(HERE, f"gold_{name}.sql"), encoding="utf-8") as f:
             df = spark.sql(f.read())
         df.write.mode("overwrite").parquet(f"{C.GOLD_DIR}/{name}")
         df.coalesce(1).write.mode("overwrite").option("header", True).csv(f"{C.GOLD_DIR}/{name}_csv")
         log(f"gold/{name} : {df.count()} lignes")
         if name == "conso_par_habitant":
+            spark.read.parquet(f"{C.GOLD_DIR}/{name}").createOrReplaceTempView("gold_hab")
             log("Top 10 des communes (énergie résidentielle par habitant, dernière année) :")
+            df.filter(F.col("annee") == df.agg(F.max("annee")).first()[0]) \
+              .orderBy("rang").show(10, truncate=False)
+        elif name == "top_communes_2000hab":
             df.filter(F.col("annee") == df.agg(F.max("annee")).first()[0]) \
               .orderBy("rang").show(10, truncate=False)
         else:
