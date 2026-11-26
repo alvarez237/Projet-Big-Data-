@@ -1,0 +1,41 @@
+# Job Kubernetes : vérification indépendante (DuckDB) des résultats gold
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: conso-verify
+  labels:
+    app: conso-communes
+spec:
+  backoffLimit: 1
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels:
+        app: conso-communes
+        component: duckdb-verify
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: duckdb
+          image: python:3.11-slim
+          command: ["/bin/bash", "-c"]
+          args:
+            - pip install --quiet duckdb pandas && cp /app/*.py /tmp/ && python /tmp/verify_duckdb.py
+          env:
+            - name: HOME
+              value: /tmp
+          envFrom:
+            - configMapRef:
+                name: conso-params
+            - secretRef:
+                name: s3-credentials
+          volumeMounts:
+            - name: code
+              mountPath: /app
+          resources:
+            requests: {cpu: 500m, memory: 1Gi}
+            limits: {cpu: "1", memory: 2Gi}
+      volumes:
+        - name: code
+          configMap:
+            name: conso-code
