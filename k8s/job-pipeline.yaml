@@ -23,7 +23,7 @@ spec:
           args:
             - >-
               /opt/spark/bin/spark-submit
-              --master local[2]
+              --master local[1] --driver-memory 1g --conf spark.ui.enabled=false
               --conf spark.jars.ivy=/tmp/.ivy2
               --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262
               /app/spark_pipeline.py --stage ${STAGE}
@@ -41,8 +41,8 @@ spec:
             - name: code
               mountPath: /app
           resources:
-            requests: {cpu: 500m, memory: 1Gi}
-            limits: {cpu: "2", memory: 4Gi}
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: "1", memory: 2Gi}
       volumes:
         - name: code
           configMap:

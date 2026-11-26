@@ -14,8 +14,8 @@ kubectl create configmap conso-code --from-file=src/ --dry-run=client -o yaml | 
 kubectl create configmap conso-params \
   --from-literal=S3_BUCKET="${S3_BUCKET:-$USER}" \
   --from-literal=S3_PREFIX="${S3_PREFIX:-bigdata_project}" \
-  --from-literal=DEPARTEMENTS="${DEPARTEMENTS:-71}" \
-  --from-literal=ANNEES="${ANNEES:-2022,2023}" \
+  --from-literal=DEPARTEMENTS="${DEPARTEMENTS:-71,21,58,89}" \
+  --from-literal=ANNEES="${ANNEES:-2022,2023,2024}" \
   --from-literal=AWS_S3_ENDPOINT="$AWS_S3_ENDPOINT" \
   --dry-run=client -o yaml | kubectl apply -f -
 # Identifiants S3 du service Onyxia, transmis aux pods des Jobs

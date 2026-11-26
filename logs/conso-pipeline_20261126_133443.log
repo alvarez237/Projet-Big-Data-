@@ -1,0 +1,222 @@
+:: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /tmp/.ivy2/cache
+The jars for the packages stored in: /tmp/.ivy2/jars
+org.apache.hadoop#hadoop-aws added as a dependency
+com.amazonaws#aws-java-sdk-bundle added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-87502673-08bb-46b4-b333-9d2d6348c241;1.0
+	confs: [default]
+	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar ...
+	[SUCCESSFUL ] org.apache.hadoop#hadoop-aws;3.3.4!hadoop-aws.jar (279ms)
+downloading https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar ...
+	[SUCCESSFUL ] com.amazonaws#aws-java-sdk-bundle;1.12.262!aws-java-sdk-bundle.jar (8626ms)
+downloading https://repo1.maven.org/maven2/org/wildfly/openssl/wildfly-openssl/1.0.7.Final/wildfly-openssl-1.0.7.Final.jar ...
+	[SUCCESSFUL ] org.wildfly.openssl#wildfly-openssl;1.0.7.Final!wildfly-openssl.jar (63ms)
+:: resolution report :: resolve 11210ms :: artifacts dl 8976ms
+	:: modules in use:
+	com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   3   |   3   |   3   |   0   ||   3   |   3   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-87502673-08bb-46b4-b333-9d2d6348c241
+	confs: [default]
+	3 artifacts copied, 0 already retrieved (275421kB/626ms)
+26/11/26 13:28:25 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/26 13:28:30 INFO SparkContext: Running Spark version 3.5.1
+26/11/26 13:28:30 INFO SparkContext: OS info Linux, 7.0.0-29-generic, amd64
+26/11/26 13:28:30 INFO SparkContext: Java version 17.0.10
+26/11/26 13:28:30 INFO ResourceUtils: ==============================================================
+26/11/26 13:28:30 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/26 13:28:30 INFO ResourceUtils: ==============================================================
+26/11/26 13:28:30 INFO SparkContext: Submitted application: conso-communes-pipeline
+26/11/26 13:28:30 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/26 13:28:30 INFO ResourceProfile: Limiting resource is cpu
+26/11/26 13:28:30 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/26 13:28:31 INFO SecurityManager: Changing view acls to: spark
+26/11/26 13:28:31 INFO SecurityManager: Changing modify acls to: spark
+26/11/26 13:28:31 INFO SecurityManager: Changing view acls groups to: 
+26/11/26 13:28:31 INFO SecurityManager: Changing modify acls groups to: 
+26/11/26 13:28:31 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+26/11/26 13:28:33 INFO Utils: Successfully started service 'sparkDriver' on port 45149.
+26/11/26 13:28:33 INFO SparkEnv: Registering MapOutputTracker
+26/11/26 13:28:33 INFO SparkEnv: Registering BlockManagerMaster
+26/11/26 13:28:33 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/26 13:28:33 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/26 13:28:33 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/26 13:28:33 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-1fc08255-eff7-4411-82a2-8cc1db878824
+26/11/26 13:28:33 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/11/26 13:28:33 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/26 13:28:33 INFO SparkContext: Added JAR file:///tmp/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://conso-pipeline-lg8d2:45149/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1795699710485
+26/11/26 13:28:33 INFO SparkContext: Added JAR file:///tmp/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://conso-pipeline-lg8d2:45149/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1795699710485
+26/11/26 13:28:33 INFO SparkContext: Added JAR file:///tmp/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://conso-pipeline-lg8d2:45149/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1795699710485
+26/11/26 13:28:33 INFO SparkContext: Added file file:///tmp/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at file:///tmp/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1795699710485
+26/11/26 13:28:33 INFO Utils: Copying /tmp/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.apache.hadoop_hadoop-aws-3.3.4.jar
+26/11/26 13:28:33 INFO SparkContext: Added file file:///tmp/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at file:///tmp/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1795699710485
+26/11/26 13:28:33 INFO Utils: Copying /tmp/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+26/11/26 13:28:34 INFO SparkContext: Added file file:///tmp/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at file:///tmp/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1795699710485
+26/11/26 13:28:34 INFO Utils: Copying /tmp/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+26/11/26 13:28:34 INFO Executor: Starting executor ID driver on host conso-pipeline-lg8d2
+26/11/26 13:28:34 INFO Executor: OS info Linux, 7.0.0-29-generic, amd64
+26/11/26 13:28:34 INFO Executor: Java version 17.0.10
+26/11/26 13:28:34 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/11/26 13:28:34 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@35dcfea8 for default.
+26/11/26 13:28:34 INFO Executor: Fetching file:///tmp/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1795699710485
+26/11/26 13:28:34 INFO Utils: /tmp/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar has been previously copied to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.apache.hadoop_hadoop-aws-3.3.4.jar
+26/11/26 13:28:34 INFO Executor: Fetching file:///tmp/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1795699710485
+26/11/26 13:28:35 INFO Utils: /tmp/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar has been previously copied to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+26/11/26 13:28:35 INFO Executor: Fetching file:///tmp/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1795699710485
+26/11/26 13:28:35 INFO Utils: /tmp/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar has been previously copied to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+26/11/26 13:28:35 INFO Executor: Fetching spark://conso-pipeline-lg8d2:45149/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1795699710485
+26/11/26 13:28:35 INFO TransportClientFactory: Successfully created connection to conso-pipeline-lg8d2/10.0.0.108:45149 after 171 ms (0 ms spent in bootstraps)
+26/11/26 13:28:35 INFO Utils: Fetching spark://conso-pipeline-lg8d2:45149/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/fetchFileTemp17670217137917460717.tmp
+26/11/26 13:28:41 INFO Utils: /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/fetchFileTemp17670217137917460717.tmp has been previously copied to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+26/11/26 13:28:41 INFO Executor: Adding file:/tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to class loader default
+26/11/26 13:28:41 INFO Executor: Fetching spark://conso-pipeline-lg8d2:45149/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1795699710485
+26/11/26 13:28:41 INFO Utils: Fetching spark://conso-pipeline-lg8d2:45149/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/fetchFileTemp15335390919796017963.tmp
+26/11/26 13:28:41 INFO Utils: /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/fetchFileTemp15335390919796017963.tmp has been previously copied to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+26/11/26 13:28:41 INFO Executor: Adding file:/tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to class loader default
+26/11/26 13:28:41 INFO Executor: Fetching spark://conso-pipeline-lg8d2:45149/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1795699710485
+26/11/26 13:28:41 INFO Utils: Fetching spark://conso-pipeline-lg8d2:45149/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/fetchFileTemp7405812759862505654.tmp
+26/11/26 13:28:41 INFO Utils: /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/fetchFileTemp7405812759862505654.tmp has been previously copied to /tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.apache.hadoop_hadoop-aws-3.3.4.jar
+26/11/26 13:28:41 INFO Executor: Adding file:/tmp/spark-145ee30d-26f4-47a8-a0a0-6bfbcdc6bb2c/userFiles-bc6e8578-9de2-4fd5-8ab2-4eb71dfd775c/org.apache.hadoop_hadoop-aws-3.3.4.jar to class loader default
+26/11/26 13:28:41 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39791.
+26/11/26 13:28:41 INFO NettyBlockTransferService: Server created on conso-pipeline-lg8d2:39791
+26/11/26 13:28:41 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/26 13:28:41 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, conso-pipeline-lg8d2, 39791, None)
+26/11/26 13:28:41 INFO BlockManagerMasterEndpoint: Registering block manager conso-pipeline-lg8d2:39791 with 434.4 MiB RAM, BlockManagerId(driver, conso-pipeline-lg8d2, 39791, None)
+26/11/26 13:28:41 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, conso-pipeline-lg8d2, 39791, None)
+26/11/26 13:28:41 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, conso-pipeline-lg8d2, 39791, None)
+[2026-11-26 13:28:43] DATA_ROOT=s3a://user-f-nonotalla-ece/bigdata_project départements=['71'] années=['2022', '2023'] Spark 3.5.1 master=local[1]
+[2026-11-26 13:28:43] début étape bronze
+26/11/26 13:28:48 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2026-11-26 13:29:54] bronze/conso : 51351 lignes
+[2026-11-26 13:30:12] bronze/population : 1993 lignes
+[2026-11-26 13:30:12] fin étape bronze en 88.6 s
+[2026-11-26 13:30:12] début étape silver
+26/11/26 13:32:38 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 13:32:40 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
++----------+-----------------------------------------+---------+------------------------------+
+|table     |controle                                 |nb_lignes|traitement                    |
++----------+-----------------------------------------+---------+------------------------------+
+|conso     |lignes_brutes                            |51351    |-                             |
+|conso     |doublons_exacts                          |0        |supprimées                    |
+|conso     |consommation_absente (secret statistique)|10406    |supprimées                    |
+|conso     |consommation_negative                    |0        |supprimées                    |
+|conso     |code_commune_invalide                    |0        |supprimées                    |
+|conso     |secteur_ou_categorie_inconnu             |234      |gardées, secteur = INCONNU    |
+|conso     |conso_sans_point_de_livraison            |0        |signalées                     |
+|conso     |moyenne_incoherente (totale/nb_sites)    |0        |signalées                     |
+|conso     |lignes_silver                            |40945    |-                             |
+|population|lignes_brutes                            |1993     |-                             |
+|population|population_absente_ou_nulle              |0        |supprimées                    |
+|jointure  |communes_conso_sans_population           |0        |exclues du calcul par habitant|
+|jointure  |communes_population_sans_conso           |1        |signalées                     |
++----------+-----------------------------------------+---------+------------------------------+
+
+[2026-11-26 13:32:49] fin étape silver en 156.9 s
+[2026-11-26 13:32:49] début étape gold
+26/11/26 13:33:36 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 13:33:37 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+[2026-11-26 13:33:43] gold/conso_par_habitant : 5975 lignes
+[2026-11-26 13:33:44] Top 10 des communes (énergie résidentielle par habitant, dernière année) :
++-----+----------------+------------+--------------------+----------+------------+-----------+---------------+--------------+----------------+---------------+-------------------+----------------------+-----------------+----+
+|annee|code_departement|code_commune|nom_commune         |population|elec_res_mwh|gaz_res_mwh|elec_totale_mwh|gaz_totale_mwh|elec_res_kwh_hab|gaz_res_kwh_hab|energie_res_kwh_hab|energie_totale_kwh_hab|evolution_res_pct|rang|
++-----+----------------+------------+--------------------+----------+------------+-----------+---------------+--------------+----------------+---------------+-------------------+----------------------+-----------------+----+
+|2024 |89              |89380       |Savigny-sur-Clairis |450       |2346.7      |7280.7     |12105.7        |9246.8        |5215.0          |16179.0        |21394.0            |47450.0               |0.4              |1   |
+|2024 |21              |21150       |Chassagne-Montrachet|261       |841.6       |2532.0     |3217.4         |4780.6        |3224.0          |9701.0         |12925.0            |30644.0               |5.8              |2   |
+|2024 |21              |21512       |Puligny-Montrachet  |340       |1428.1      |2503.5     |4482.4         |3815.6        |4200.0          |7363.0         |11564.0            |24406.0               |-0.5             |3   |
+|2024 |21              |21428       |Monthelie           |144       |396.9       |1202.3     |715.5          |1691.9        |2756.0          |8349.0         |11105.0            |16718.0               |6.0              |4   |
+|2024 |89              |89162       |Évry                |402       |1343.9      |2673.5     |1479.8         |3957.0        |3343.0          |6650.0         |9993.0             |13524.0               |105.3            |5   |
+|2024 |21              |21716       |Vougeot             |150       |486.9       |925.7      |1589.4         |2365.6        |3246.0          |6171.0         |9417.0             |26367.0               |1.0              |6   |
+|2024 |21              |21492       |Pommard             |430       |1377.9      |2485.8     |2895.2         |4170.1        |3204.0          |5781.0         |8985.0             |16431.0               |4.2              |7   |
+|2024 |21              |21712       |Volnay              |224       |516.7       |1428.2     |1419.9         |2875.5        |2307.0          |6376.0         |8683.0             |19176.0               |-3.1             |8   |
+|2024 |71              |71174       |Dezize-lès-Maranges |162       |510.8       |892.1      |759.7          |1041.4        |3153.0          |5507.0         |8659.0             |11118.0               |3.5              |9   |
+|2024 |21              |21412       |Meursault           |1363      |4250.6      |7146.5     |19363.8        |14594.6       |3119.0          |5243.0         |8362.0             |24914.0               |0.7              |10  |
++-----+----------------+------------+--------------------+----------+------------+-----------+---------------+--------------+----------------+---------------+-------------------+----------------------+-----------------+----+
+only showing top 10 rows
+
+26/11/26 13:34:05 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 13:34:05 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+[2026-11-26 13:34:08] gold/conso_par_secteur : 30 lignes
++-----+-----------+------------------+---------+-------------------+--------+
+|annee|filiere    |code_grand_secteur|conso_gwh|nb_points_livraison|part_pct|
++-----+-----------+------------------+---------+-------------------+--------+
+|2022 |Electricité|RESIDENTIEL       |4000.72  |911835             |37.3    |
+|2022 |Electricité|TERTIAIRE         |3730.21  |118856             |34.8    |
+|2022 |Electricité|INDUSTRIE         |2777.93  |9137               |25.9    |
+|2022 |Electricité|AGRICULTURE       |167.74   |10653              |1.6     |
+|2022 |Electricité|INCONNU           |44.84    |1119               |0.4     |
+|2022 |Gaz        |INDUSTRIE         |3886.14  |2962               |41.7    |
+|2022 |Gaz        |RESIDENTIEL       |3475.4   |306467             |37.3    |
+|2022 |Gaz        |TERTIAIRE         |1918.22  |19965              |20.6    |
+|2022 |Gaz        |AGRICULTURE       |43.89    |725                |0.5     |
+|2022 |Gaz        |INCONNU           |2.14     |3                  |0.0     |
+|2023 |Electricité|RESIDENTIEL       |3888.75  |916956             |37.9    |
+|2023 |Electricité|TERTIAIRE         |3503.67  |119734             |34.2    |
+|2023 |Electricité|INDUSTRIE         |2696.48  |9009               |26.3    |
+|2023 |Electricité|AGRICULTURE       |157.35   |10327              |1.5     |
+|2023 |Electricité|INCONNU           |4.94     |1289               |0.0     |
+|2023 |Gaz        |INDUSTRIE         |3501.87  |2851               |41.0    |
+|2023 |Gaz        |RESIDENTIEL       |3205.36  |301131             |37.5    |
+|2023 |Gaz        |TERTIAIRE         |1803.15  |19896              |21.1    |
+|2023 |Gaz        |AGRICULTURE       |37.73    |720                |0.4     |
+|2023 |Gaz        |INCONNU           |0.26     |2                  |0.0     |
+|2024 |Electricité|RESIDENTIEL       |3923.11  |920224             |38.1    |
+|2024 |Electricité|TERTIAIRE         |3498.12  |120233             |33.9    |
+|2024 |Electricité|INDUSTRIE         |2349.98  |9256               |22.8    |
+|2024 |Electricité|INCONNU           |382.12   |1242               |3.7     |
+|2024 |Electricité|AGRICULTURE       |153.71   |10234              |1.5     |
+|2024 |Gaz        |INDUSTRIE         |3362.28  |2865               |39.8    |
+|2024 |Gaz        |RESIDENTIEL       |3159.04  |295989             |37.4    |
+|2024 |Gaz        |TERTIAIRE         |1877.41  |19971              |22.2    |
+|2024 |Gaz        |AGRICULTURE       |40.57    |717                |0.5     |
+|2024 |Gaz        |INCONNU           |2.73     |2                  |0.0     |
++-----+-----------+------------------+---------+-------------------+--------+
+
+26/11/26 13:34:25 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 13:34:25 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+[2026-11-26 13:34:27] gold/synthese_departement : 12 lignes
++-----+----------------+-----------+----------+----------------+---------------+-------------------+-------------------+-----------------+---------------------------+
+|annee|code_departement|nb_communes|population|elec_res_kwh_hab|gaz_res_kwh_hab|energie_res_kwh_hab|mediane_res_kwh_hab|evolution_res_pct|part_communes_en_baisse_pct|
++-----+----------------+-----------+----------+----------------+---------------+-------------------+-------------------+-----------------+---------------------------+
+|2022 |21              |697        |540083    |2154.0          |2167.0         |4321.0             |3133.0             |NULL             |NULL                       |
+|2023 |21              |697        |540083    |2096.0          |2003.0         |4099.0             |3030.0             |-5.1             |82.6                       |
+|2024 |21              |697        |540083    |2129.0          |2004.0         |4133.0             |3052.0             |0.8              |33.4                       |
+|2022 |58              |309        |201417    |2905.0          |1783.0         |4688.0             |3759.0             |NULL             |NULL                       |
+|2023 |58              |309        |201417    |2810.0          |1634.0         |4444.0             |3605.0             |-5.2             |84.1                       |
+|2024 |58              |309        |201417    |2810.0          |1591.0         |4401.0             |3564.0             |-1.0             |52.8                       |
+|2022 |71              |563        |550310    |2435.0          |2343.0         |4778.0             |3746.0             |NULL             |NULL                       |
+|2023 |71              |563        |550310    |2370.0          |2163.0         |4533.0             |3611.0             |-5.1             |88.6                       |
+|2024 |71              |563        |550310    |2398.0          |2154.0         |4552.0             |3656.0             |0.4              |35.0                       |
+|2022 |89              |423        |332267    |2745.0          |1976.0         |4721.0             |3915.0             |NULL             |NULL                       |
+|2023 |89              |423        |332267    |2669.0          |1818.0         |4487.0             |3734.0             |-5.0             |88.7                       |
+|2024 |89              |422        |332117    |2674.0          |1718.0         |4392.0             |3745.0             |-2.2             |59.0                       |
++-----+----------------+-----------+----------+----------------+---------------+-------------------+-------------------+-----------------+---------------------------+
+
+26/11/26 13:34:35 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+26/11/26 13:34:35 WARN AbstractS3ACommitterFactory: Using standard FileOutputCommitter to commit work. This is slow and potentially unsafe.
+[2026-11-26 13:34:37] gold/top_communes_2000hab : 330 lignes
++-----+----------------+------------+-------------------------+----------+----------------+---------------+-------------------+-----------------+----+
+|annee|code_departement|code_commune|nom_commune              |population|elec_res_kwh_hab|gaz_res_kwh_hab|energie_res_kwh_hab|evolution_res_pct|rang|
++-----+----------------+------------+-------------------------+----------+----------------+---------------+-------------------+-----------------+----+
+|2024 |89              |89346       |Saint-Georges-sur-Baulche|3151      |2698.0          |3679.0         |6377.0             |-0.8             |1   |
+|2024 |71              |71221       |Givry                    |3598      |3065.0          |3304.0         |6370.0             |2.0              |2   |
+|2024 |71              |71059       |Le Breuil                |3538      |2216.0          |3761.0         |5977.0             |0.2              |3   |
+|2024 |21              |21278       |Fontaine-lès-Dijon       |9252      |2006.0          |3951.0         |5958.0             |3.2              |4   |
+|2024 |71              |71230       |Gueugnon                 |6528      |2210.0          |3503.0         |5713.0             |-2.8             |5   |
+|2024 |58              |58079       |Clamecy                  |3544      |2359.0          |3345.0         |5704.0             |-1.6             |6   |
+|2024 |71              |71263       |Louhans                  |6446      |2410.0          |3289.0         |5698.0             |-0.4             |7   |
+|2024 |21              |21485       |Plombières-lès-Dijon     |2497      |2010.0          |3670.0         |5680.0             |2.7              |8   |
+|2024 |21              |21657       |Varois-et-Chaignot       |2094      |2393.0          |3284.0         |5677.0             |1.8              |9   |
+|2024 |21              |21021       |Arc-sur-Tille            |2584      |2368.0          |3295.0         |5663.0             |4.8              |10  |
++-----+----------------+------------+-------------------------+----------+----------------+---------------+-------------------+-----------------+----+
+only showing top 10 rows
+
+[2026-11-26 13:34:39] fin étape gold en 110.2 s

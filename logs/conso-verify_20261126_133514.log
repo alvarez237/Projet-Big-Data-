@@ -1,0 +1,27 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[notice] A new release of pip is available: 24.0 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+[2026-11-26 13:35:10] lecture brute : s3://user-f-nonotalla-ece/bigdata_project/raw/conso_elec_gaz_communes.csv et s3://user-f-nonotalla-ece/bigdata_project/raw/population_communes.csv
+
+=== Contrôle 1 : kWh résidentiels par habitant, Spark vs DuckDB ===
+ annee code_commune                nom_commune   spark  duckdb  ecart
+  2022        89380        Savigny-sur-Clairis 23512.0 23512.0    0.0
+  2022        21150       Chassagne-Montrachet 12535.0 12535.0    0.0
+  2022        21512         Puligny-Montrachet 12240.0 12240.0    0.0
+  2022        21428                  Monthelie 11267.0 11267.0    0.0
+  2022        21716                    Vougeot  9963.0  9963.0    0.0
+  2022        21492                    Pommard  9517.0  9517.0    0.0
+  2022        71174        Dezize-lès-Maranges  9376.0  9376.0    0.0
+  2022        21712                     Volnay  9341.0  9341.0    0.0
+  2022        21412                  Meursault  8815.0  8815.0    0.0
+  2022        71459 Saint-Martin-sous-Montaigu  8545.0  8545.0    0.0
+[2026-11-26 13:35:11] contrôle 1 : 5975/5975 communes-années conformes (tolérance 1 kWh/hab)
+
+=== Contrôle 2 : totaux annuels par filière ===
+(Spark ne compte que les communes ayant une population INSEE : un petit écart est possible)
+ annee  elec_spark_mwh  elec_duckdb_mwh  gaz_spark_mwh  gaz_duckdb_mwh
+  2022      10721451.0       10721451.0      9325787.0       9325787.0
+  2023      10251189.0       10251190.0      8548366.0       8548366.0
+  2024      10307027.0       10307028.0      8442029.0       8442028.0
+[2026-11-26 13:35:11] rapports écrits dans s3://user-f-nonotalla-ece/bigdata_project/processed/verification
