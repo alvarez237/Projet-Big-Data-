@@ -1,8 +1,8 @@
-# Consommation d'électricité et de gaz par commune et par habitant (Saône-et-Loire)
+# Consommation d'électricité et de gaz par commune et par habitant ( Département : Saône-et-Loire)
 
 ## Auteurs
 - NONO TALLA Fortune Alvarez
-- NOM Prénom (binôme)
+- SAMSON ELIE
 
 ## Prérequis
 - Compte Onyxia, service **VSCode-pyspark** lancé avec le rôle Kubernetes `admin`.
@@ -19,10 +19,12 @@
 | Taille brute | X,XX Mo (affichée par `download_data.py`) |
 
 ## Contexte et choix de l'étude
-Depuis la loi de transition énergétique de 2015, les gestionnaires de réseaux publient la consommation d'énergie de chaque commune. Ces données servent aux collectivités pour suivre leur consommation et cibler leurs actions (rénovation, chauffage). Nous avons choisi ce sujet pour trois raisons : il est lié à notre parcours data dans l'industrie et l'énergie, il oblige à joindre deux sources publiques (Agence ORE et INSEE), et les données contiennent de vrais défauts à traiter (secret statistique, secteurs inconnus, communes sans population). Le périmètre (un département, deux années) respecte la limite de 1 à 5 Mo. Les années 2022 et 2023 suivent la même méthode de calcul : l'Agence ORE l'a changée en 2022.
+Depuis la loi de transition énergétique de 2015, les gestionnaires de réseaux publient la consommation d'énergie de chaque commune. Ces données servent aux collectivités pour suivre leur consommation et cibler leurs actions (rénovation, chauffage). Ces données sont publiées en volumes bruts par secteur d'activité : elles ne permettent pas de comparer directement des communes de tailles différentes. La période 2022-2023, marquée par la crise énergétique et le plan de sobriété, rend utile une mesure fine de l'évolution des consommations des ménages à l'échelle locale. 
+Le périmètre (un département, deux années) respecte la limite de 1 à 5 Mo. Les années 2022 et 2023 suivent la même méthode de calcul : l'Agence ORE l'a changée en 2022.
 
 ## Problématique
-Quelles communes de Saône-et-Loire consomment le plus d'électricité et de gaz résidentiels par habitant, et comment cette consommation a-t-elle évolué entre 2022 et 2023 ? Le résultat est recalculé indépendamment avec DuckDB et comparé à la datavisualisation officielle de l'Agence ORE.
+
+Quelles communes de Saône-et-Loire consomment le plus d'électricité et de gaz résidentiels par habitant, et comment cette consommation a-t-elle évolué entre 2022 et 2023 ? En croisant les données de l'Agence ORE avec la population INSEE, le projet produit un indicateur comparable entre communes, absent des données publiées, qui permet de cibler les territoires prioritaires pour la rénovation énergétique des logements.
 
 ## Chemins S3
 | Couche | Chemin (`s3://<id-onyxia>/bigdata_project/...`) |
