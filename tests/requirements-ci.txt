@@ -1,0 +1,4 @@
+# Dépendances supplémentaires pour les tests (CI GitHub Actions) ; sur Onyxia, Spark est déjà installé.
+pyspark==3.5.1
+pytest
+ruff
